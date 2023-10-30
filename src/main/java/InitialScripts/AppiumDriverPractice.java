@@ -22,7 +22,8 @@ public class AppiumDriverPractice {
 
         // Capabilities
         UiAutomator2Options options = new UiAutomator2Options();
-        options.setDeviceName("RNRmobileplay");
+//        options.setDeviceName("RNRmobileplay");
+    options.setDeviceName("Android Device");
         options.setApp(System.getProperty("user.dir") + "/src/resources/ApiDemos-debug.apk");
 //        System.out.println(System.getProperty("user.dir")+"/src/resources/ApiDemos-debug.apk");
 // appium service initiation
@@ -41,7 +42,7 @@ return driver;
     @AfterMethod(alwaysRun = true)
     public void tearDown() throws InterruptedException {
 
-           Thread.sleep(5000);
+//           Thread.sleep(5000);
             driver.quit();
             service.stop();
         }

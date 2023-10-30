@@ -50,21 +50,22 @@ public class AppiumPractice_1 extends AppiumDriverPractice {
 
     }
 
-//    @Test
-//    public void scrollByappium() throws InterruptedException {
-//        boolean canScrollMore;
-//        driver.findElement(AppiumBy.accessibilityId("Views")).click();
-//
-//
-//        do {
-//            canScrollMore = (Boolean) ((JavascriptExecutor) driver).executeScript("mobile: scrollGesture", ImmutableMap.of(
-//                    "left", 750, "top", 350, "width", 1440, "height", 2560,
-//                    "direction", "down",
-//                    "percent", 3.0
-//            ));
-//        } while (canScrollMore);
+    @Test
+    public void scrollByappium() throws InterruptedException {
+        boolean canScrollMore;
+        driver.findElement(AppiumBy.accessibilityId("Views")).click();
+
+
+        do {
+            canScrollMore = (Boolean) ((JavascriptExecutor) driver).executeScript("mobile: scrollGesture", ImmutableMap.of(
+                    "left", 750, "top", 350, "width", 1440, "height", 2560,
+                    "direction", "down",
+                    "percent", 3.0
+            ));
+            System.out.println(canScrollMore);
+        } while (canScrollMore);
 //        Thread.sleep(15000);
-//    }
+    }
 
     @Test
     public void swipe() {
