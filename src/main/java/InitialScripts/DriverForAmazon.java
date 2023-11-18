@@ -13,29 +13,30 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 
-public class AppiumDriverPractice {
-   public AppiumDriverLocalService service;
+public class DriverForAmazon {
+
+    public AppiumDriverLocalService service;
     AndroidDriver driver;
 
-@BeforeMethod(alwaysRun = true)
+    @BeforeMethod(alwaysRun = true)
     public AndroidDriver initDriver() throws MalformedURLException, InterruptedException {
 
         // Capabilities
         UiAutomator2Options options = new UiAutomator2Options();
-        options.setDeviceName("RNRmobileplay");
-//    options.setDeviceName("Android Device");
-        options.setApp(System.getProperty("user.dir") + "/src/resources/ApiDemos-debug.apk");
+        options.setDeviceName("RNRmobile");
+//            options.setDeviceName("Android Device");
+        options.setApp(System.getProperty("user.dir") + "/src/resources/amazon-india.apk");
 //        System.out.println(System.getProperty("user.dir")+"/src/resources/ApiDemos-debug.apk");
 // appium service initiation
         service = new AppiumServiceBuilder().withAppiumJS(new File("C:\\Users\\Raveendra\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js"))
                 .withIPAddress("127.0.0.1").usingPort(4723).withTimeout(Duration.ofSeconds(600)).build();
-            service.start();
+        service.start();
 
 //main.js path C:\Users\Raveendra\AppData\Roaming\npm\node_modules\appium\build\lib\main.js
         // Android driver initialization
-         driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
-         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-return driver;
+        driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        return driver;
 
     }
 
@@ -43,9 +44,10 @@ return driver;
     public void tearDown() throws InterruptedException {
 
 //           Thread.sleep(5000);
-            driver.quit();
-            service.stop();
-        }
+        driver.quit();
+        service.stop();
+    }
 
 
 }
+

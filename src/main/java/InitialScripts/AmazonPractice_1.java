@@ -2,7 +2,6 @@ package InitialScripts;
 
 import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumBy;
-import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -12,7 +11,7 @@ import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 
-public class AppiumPractice_1 extends AppiumDriverPractice {
+public class AmazonPractice_1 extends DriverForAmazon {
 
     @Test
     public void navigateWithClicks() throws MalformedURLException, InterruptedException {
@@ -60,7 +59,7 @@ public class AppiumPractice_1 extends AppiumDriverPractice {
             canScrollMore = (Boolean) ((JavascriptExecutor) driver).executeScript("mobile: scrollGesture", ImmutableMap.of(
                     "left", 750, "top", 350, "width", 1440, "height", 2560,
                     "direction", "down",
-                    "percent", .50
+                    "percent", 3.0
             ));
             System.out.println(canScrollMore);
         } while (canScrollMore);
